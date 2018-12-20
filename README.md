@@ -77,6 +77,30 @@ to build an RPM.
 You need to have the Arduino IDE. You can either install it through the
 installer or download the distribution zip file and extract it.
 
+### AVR Tools
+
+#### homebrew (or linuxbrew)
+
+```sh
+$ brew tap osx-cross/avr
+$ brew install avr-gcc
+$ brew install avrdude
+
+# to verify
+$ avr-gcc -v
+$ avrdude -v
+```
+
+#### Using apt-get (or aptitude)
+
+```sh
+$ sudo apt-get install gcc-avr binutils avr-libc avrdude
+
+# to verify
+$ avr-gcc -v
+$ avrdude -v
+```
+
 ### pySerial
 
 The Makefile also delegates resetting the board to a short Python program.
