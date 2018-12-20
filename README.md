@@ -2,6 +2,24 @@
 
 This is a very simple Makefile which knows how to build Arduino sketches. It defines entire workflows for compiling code, flashing it to Arduino and even communicating through Serial monitor. You don't need to change anything in the Arduino sketches.
 
+Table of Contents
+=================
+<!--- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) --->
+
+  * [Features](#features)
+  * [Installation](#installation)
+  * [Requirements](#requirements)
+  * [Usage](#usage)
+  * [Versioning](#versioning)
+  * [License](#license)
+  * [Contribution](#contribution)
+  * [Limitations / Known Issues / TODO's](#limitations--known-issues--todos)
+  * [Interfacing with other projects/frameworks/IDE's](#interfacing-with-other-projectsframeworksides)
+  * [Test Suite](#test-suite)
+  * [Makefile Generator and Project Initialisation](#makefile-generator-and-project-initialisation)
+  * [Credits](#credits)
+  * [Similar works](#similar-works)
+
 ## Features
 
 - Very robust
@@ -185,7 +203,7 @@ Download a copy of this repo somewhere to your system or install it through a pa
 Sample makefiles are provided in the `examples/` directory.  E.g. [Makefile-example](examples/MakefileExample/Makefile-example.mk) demonstrates some of the more advanced options,
 whilst [Blink](examples/Blink/Makefile) demonstrates the minimal settings required for various boards like the Uno, Nano, Mega, Teensy, ATtiny etc.
 
-### Mac
+#### Mac
 
 On the Mac with IDE 1.0 you might want to set:
 
@@ -202,7 +220,7 @@ On the Mac with IDE 1.5+ it's like above but with
 ```make
     ARDUINO_DIR   = /Applications/Arduino.app/Contents/Java
 ```
-### Linux
+#### Linux
 
 You can either declare following variables in your project's makefile or set them as environmental variables.
 
@@ -229,7 +247,7 @@ Example of the project's make file:
     MONITOR_PORT  = /dev/ttyACM0
 ```
 
-### Windows
+#### Windows
 
 On Windows (using Cygwin), you might want to set:
 
@@ -260,7 +278,7 @@ On Arduino 1.5+ installs, you should set the architecture to either `avr` or `sa
     BOARD_SUB     = atmega168
 ```
 
-#### Symbolic Link
+##### Symbolic Link
 
 It is recommended in Windows that you create a symbolic link to avoid problems with file naming conventions on Windows; unless one installs to a non-default location. For example, if your your Arduino directory is in:
 
@@ -305,7 +323,7 @@ The list of all variables that can be overridden is available at [arduino-mk-var
 
 
 
-## Including Libraries
+### Including Libraries
 
 You can specify space separated list of libraries that are needed for your sketch in the variable `ARDUINO_LIBS`.
 
@@ -322,7 +340,7 @@ The libraries inside user directories will take precedence over libraries presen
 
 The makefile can autodetect the libraries that are included from your sketch and can include them automatically. But it can't detect libraries that are included from other libraries. (see [issue #93](https://github.com/sudar/Arduino-Makefile/issues/93))
 
-## avrdude
+### avrdude
 
 To upload compiled files, `avrdude` is used. This Makefile tries to find `avrdude` and it's config (`avrdude.conf`) below `ARDUINO_DIR`. If you like to use the one installed on your system instead of the one which came with Arduino, you can try to set the variables `AVRDUDE` and `AVRDUDE_CONF`. On a typical Linux system these could be set to
 
@@ -331,13 +349,13 @@ To upload compiled files, `avrdude` is used. This Makefile tries to find `avrdud
       AVRDUDE_CONF = /etc/avrdude.conf
 ```
 
-## Teensy 3.x
+### Teensy 3.x
 
 For Teensy 3.x support you must first install [Teensyduino](http://www.pjrc.com/teensy/teensyduino.html).
 
 See examples/BlinkTeensy for example usage.
 
-## Robotis OpenCM
+### Robotis OpenCM
 
 For Robotis OpenCM support you must first install [the OpenCM IDE](http://support.robotis.com/en/software/robotis_opencm/robotis_opencm.htm)
 
@@ -345,7 +363,7 @@ See examples/BlinkOpenCM for example usage.
 
 For large Robotis projects, [libmaple](https://github.com/Rhoban/Maple) may be more appropriate, as the OpenCM IDE uses a very old compiler release.
 
-## Arduino ARM Boards
+### Arduino ARM Boards
 
 For Arduino boards using ARM architechure, specifically the Atmel SAM series
 ((SAM3X8E) Due; (SAMD21) Arduino M0 [Pro], Zero, MKR1000, Feather M0, etc.), first
