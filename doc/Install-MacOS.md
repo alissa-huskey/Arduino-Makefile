@@ -1,9 +1,8 @@
 # MacOS Installation Guide for Arduino-Makefile
 
-A guide to setup of Arduino-Makefile including instaling its requirements and system configuration for MacOS.
+A guide to setup of Arduino-Makefile including installing its requirements and system configuration for MacOS.
 
-Table of Contents
-=================
+**Table of Contents**
 <!--- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) --->
 
   * [Feelin' Lucky?](#feelin-lucky)
@@ -17,15 +16,19 @@ Table of Contents
 
 ## Feelin' Lucky?
 
-Assuming that you already have the Arduino IDE 1.5+ installed, here is the shortest path to a test install.
+Assuming that you already have the Arduino IDE 1.5+ installed, here is the bare minimum install process:
 
 ```sh
 $ pip install pyserial
 $ git clone git@github.com:sudar/Arduino-Makefile.git
-$ cd Arduino-Makefile/examples/Blink
+$ cd Arduino-Makefile
+$ echo 'export ARDMK_DIR="'"$(pwd -P)"'"' >> "$HOME/.bashrc"
+$ cd examples/Blink
 $ make
 $ make upload  # assumes an arduino uno board plugged in
 ```
+
+See below for more detailed instructions, additional steps you may wish to take, and variables you might want to set for your system.
 
 ## Install Requirements
 
@@ -44,13 +47,17 @@ https://www.arduino.cc/en/Guide/MacOSX
 
 ### AVR Tools
 
-homebrew
+AVR Tools are bundled with your Arduino IDE (1.5+) and Arduino-Makefile use those by default.
+
+However, the version bundled with the IDE is quite old. As of Arduino 1.8.8 the bundled version of avr-gcc is 5.4, while the current version is 8.4. So you may wish to install a more modern version.
+
+To install using homebrew:
 ```sh
 $ brew tap osx-cross/avr
 $ brew install avr-gcc
 $ brew install avrdude
 
-# verify it worked
+# verify that it works:
 $ avr-gcc --version
 $ avrdude -v
 ```
@@ -89,7 +96,12 @@ $ brew install arduino-mk
 
 ### Set system-wide Arduino-Makefile variables
 
-The following paramaters can be set in either the Makefile or as an environment variables. Because these are system-wide settings, these instructions will show you how to set them as environment variables so that they will persist across all of your projects. You can choose to set them your Makefile instead, or override them there on a per-project basis.
+All Arduino-Makefile parameters can be set in either the Makefile or as an environment variables.
+
+These are the main parameters you might want to set that apply to your system.
+These instructions will set them as environment variables so that they will persist across all of your projects.
+Just know you can choose to set them your Makefile instead of or in addition to setting environment variables.
+
 
 Append the following to your .bash_profile:
 
@@ -101,7 +113,7 @@ export AVR_TOOLS_DIR="/usr"      # path to avr-gcc and avrdude
 # uncomment the following if not auto-detected
 # export ARDUINO_DIR="/Applications/Arduino.app/Contents/Resources/Java" # 1.0.X # path to Arduino IDE
 # export ARDUINO_DIR="/Applications/Arduino.app/Contents/Java"           # 1.5+  # path to Arduino IDE
-# export ARDMK_DIR="/usr/local"                                          # path to Arduino-Makefile, if installed with a packag manager
+# export ARDMK_DIR="/usr/local"                                          # path to Arduino-Makefile, if installed with a package manager
 # export AVR_TOOLS_DIR="/usr"                                            # path to avr-gcc and avrdude
 # export MONITOR_PORT="/dev/ttyACM0"                                     # serial monitor port
 ```

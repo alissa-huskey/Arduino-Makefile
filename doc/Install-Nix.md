@@ -1,9 +1,8 @@
 # *Nix Systems Installation for Arduino Makefile
 
-A guide to setup of Arduino-Makefile including instaling its requirements and system configuration for *Nix systems.
+A guide to setup of Arduino-Makefile including installing its requirements and system configuration for *Nix systems.
 
-Table of Contents
-=================
+**Table of Contents**
 <!--- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) --->
 
   * [Feelin' Lucky?](#feelin-lucky)
@@ -16,17 +15,21 @@ Table of Contents
 
 ## Feelin' Lucky?
 
-Assuming that you already have the Arduino IDE 1.5+ installed, here is the shortest path to a test install.
+Assuming that you already have the Arduino IDE 1.5+ installed, here is the bare minimum install process:
 
 ```sh
 $ echo 'export ARDUINO_DIR="<SET PATH HERE>/arduino-X-X-X"' >> "$HOME/.bashrc"
 $ source "$HOME/.bashrc"
 $ pip install pyserial
 $ git clone git@github.com:sudar/Arduino-Makefile.git
-$ cd Arduino-Makefile/examples/Blink
+$ cd Arduino-Makefile
+$ echo 'export ARDMK_DIR="'"$(pwd -P)"'"' >> "$HOME/.bashrc"
+$ cd examples/Blink
 $ make
 $ make upload  # assumes an arduino uno board plugged in
 ```
+
+See below for more detailed instructions, additional steps you may wish to take, and variables you might want to set for your system.
 
 ## Install Requirements
 
@@ -43,20 +46,17 @@ You will end up with a directory named arduino-X-X-X. Common install locations i
 
 ### AVR Tools
 
-AVR Tools are bundled with your Arduino IDE 1.5+ and Arduino-Makefile will look for them there without needing to install a seperate package.
+AVR Tools are bundled with your Arduino IDE (1.5+) and Arduino-Makefile use those by default.
 
-However, the version bundled with the IDE is quite old. As of Arduino 1.8.8 the bundled version of avr-gcc is 5.4, while the current version is 8.4. So you may wish to install an independent instance of these tools.
-
-First, check to see if it's already installed with:
-
-```sh
-$ avr-gcc --version
-$ avrdude -v
-```
+However, the version bundled with the IDE is quite old. As of Arduino 1.8.8 the bundled version of avr-gcc is 5.4, while the current version is 8.4. So you may wish to install a more modern version.
 
 apt or aptitude
 ```sh
 $ sudo apt-get install gcc-avr binutils avr-libc avrdude
+
+# verify that it works:
+$ avr-gcc --version
+$ avrdude -v
 ```
 
 linuxbrew
@@ -125,13 +125,17 @@ to build an RPM.
 
 ### Set system-wide Arduino-Makefile variables
 
-The following paramaters can be set in either the Makefile or as an environment variables. Because these are system-wide settings, these instructions will show you how to set them as environment variables so that they will persist across all of your projects. You can choose to set them your Makefile instead, or override them there on a per-project basis.
+All Arduino-Makefile parameters can be set in either the Makefile or as an environment variables. 
+
+These are the main parameters you might want to set that apply to your system. 
+These instructions will set them as environment variables so that they will persist across all of your projects. 
+Just know you can choose to set them your Makefile instead of or in addition to setting environment variables.
 
 Append to your .bashrc
 
 ```sh
 # append to $HOME/.bashrc
 export ARDUINO_DIR="<PATH>/arduino-X-X-X" # path to the Arduino IDE
-export AVR_TOOLS_DIR=/usr/include         # path to avr-gcc and avrdude, if you installed them seperate from the IDE
+# export AVR_TOOLS_DIR=/usr/include       # path to avr-gcc and avrdude, uncomment if you installed them
 # export ONITOR_PORT  = /dev/ttyACM0      # uncomment if not auto-detected
 ```

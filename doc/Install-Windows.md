@@ -1,9 +1,8 @@
 # Windows Installation for Arduino-Makefile
 
-A guide to setup of Arduino-Makefile including instaling its requirements and system configuration for Windows.
+A guide to setup of Arduino-Makefile including installing its requirements and system configuration for Windows.
 
-Table of Contents
-=================
+**Table of Contents**
 <!--- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) --->
 
   * [Feelin' Lucky?](#feelin-lucky)
@@ -21,7 +20,7 @@ Table of Contents
 
 ## Feelin' Lucky?
 
-Assuming that you have Cygwin, a working .bashrc, the Arduino IDE 1.5+, and the other required packages already installed, here is the shortest path to a test install.
+Assuming that you have Cygwin, a working .bashrc, the Arduino IDE 1.5+, and the other required packages already installed, here is the bare minimum install process:
 
 ```sh
 $ export CYGWIN="winsymlinks:native"
@@ -30,10 +29,15 @@ $ echo 'export ARDUINO_DIR="C:/Arduino"' >> "$HOME/.bashrc"
 $ source "$HOME/.bashrc"
 $ pip install pyserial
 $ git clone git@github.com:sudar/Arduino-Makefile.git
-$ cd Arduino-Makefile/examples/Blink
+$ cd Arduino-Makefile
+$ echo 'export ARDMK_DIR="'"$(pwd -P)"'"' >> "$HOME/.bashrc"
+$ cd examples/Blink
 $ make
 $ make upload  # assumes an arduino uno board plugged in
 ```
+
+See below for more detailed instructions, additional steps you may wish to take, and variables you might want to set for your system.
+
 
 ## Install Requirements
 
@@ -55,18 +59,17 @@ If you already have it installed, you can run the setup.exe again to add any mis
 
 ### Arduino IDE
 
-If you do not already have the Arduino IDE installed, follow the guide here to install it.
+If you do not already have the Arduino IDE installed, follow the [this guide](https://www.arduino.cc/en/Guide/windows) to install it.
 
-https://www.arduino.cc/en/Guide/windows
 
 ### AVR Tools
 
-AVR Tools are bundled with your Arduino IDE and Arduino-Makefile will look for them there without installing a seperate package.
+AVR Tools are bundled with your Arduino IDE (1.5+) and Arduino-Makefile use those by default.
 
-If you wish to upgrade to a more modern version of avr-gcc it looks like the way to do so is WinAVR. There's a detailed writeup here.
+However, the version bundled with the IDE is quite old. As of Arduino 1.8.8 the bundled version of avr-gcc is 5.4, while the current version is 8.4. So you may wish to install a more modern version.
 
-https://sourceforge.net/projects/winavr/
-http://www.nongnu.org/avr-libc/user-manual/install_tools.html
+If you wish to upgrade to a more modern version of avr-gcc it looks like the way to do so is WinAVR. See [this detailed writeup](http://www.nongnu.org/avr-libc/user-manual/install_tools.html).
+
 
 
 ### pySerial
@@ -124,7 +127,11 @@ mklink /d C:\Arduino C:\Program Files (x86)\Arduino
 
 ### Set system-wide Arduino-Makefile variables
 
-The following paramaters can be set in either the Makefile or as an environment variables. Because these are system-wide settings, these instructions will show you how to set them as environment variables so that they will persist across all of your projects. You can choose to set them your Makefile instead, or override them there on a per-project basis.
+All Arduino-Makefile parameters can be set in either the Makefile or as an environment variables.
+
+These are the main parameters you might want to set that apply to your system.
+These instructions will set them as environment variables so that they will persist across all of your projects.
+Just know you can choose to set them your Makefile instead of or in addition to setting environment variables.
 
 Append the following to your .bashrc:
 ```sh
