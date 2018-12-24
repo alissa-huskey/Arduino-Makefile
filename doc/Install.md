@@ -1,3 +1,5 @@
+[&ldca; Getting Started]() // [Usage &raquo;]()
+
 # Installation Guide
 
 A guide to install and setup Arduino-Makefile including installing its requirements, support for any additional board platforms, and how to verify that things are working.
@@ -8,6 +10,7 @@ A guide to install and setup Arduino-Makefile including installing its requireme
   * [System Setup](#system-setup)
   * [Board Platform Support](#board-platform-support)
   * [Test Drive](#test-drive)
+
 
 ## System Setup
 
@@ -63,3 +66,5 @@ $ cd $ARDMK_DIR/examples/Blink
 $ make
 $ make upload # assumes you have an Uno board plugged in
 ```
+
+[&ldca; Getting Started]() // [Usage &raquo;]()
