@@ -1,11 +1,13 @@
-[&ldca; Getting Started]() // [Usage &raquo;]()
+[&ldca; Getting Started](GettingStarted.md) // [Usage &raquo;](Usage.md)
+
+----
 
 # Installation Guide
 
 A guide to install and setup Arduino-Makefile including installing its requirements, support for any additional board platforms, and how to verify that things are working.
 
-**Table of Contents**
-<!-- Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go) -->
+#### Table of Contents
+<!--- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) -->
 
   * [System Setup](#system-setup)
   * [Board Platform Support](#board-platform-support)
@@ -67,4 +69,6 @@ $ make
 $ make upload # assumes you have an Uno board plugged in
 ```
 
-[&ldca; Getting Started]() // [Usage &raquo;]()
+----
+
+[&ldca; Getting Started](GettingStarted.md) // [^Table of Contents^](#table-of-contents) // [Usage &raquo;](Usage.md)

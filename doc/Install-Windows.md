@@ -1,9 +1,13 @@
+[&ldca; Getting Started](GettingStarted.md) // Finish [Installation &raquo;](Install.md#board-platform-support)
+
+----
+
 # Windows Installation for Arduino-Makefile
 
 A guide to setup of Arduino-Makefile including installing its requirements and system configuration for Windows.
 
-**Table of Contents**
-<!--- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) --->
+#### Table of Contents
+<!--- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) -->
 
   * [Feelin' Lucky?](#feelin-lucky)
   * [Install Requirements](#install-requirements)
@@ -43,9 +47,7 @@ See below for more detailed instructions, additional steps you may wish to take,
 
 ### Cygwin
 
-If you don't already have it, install Cygwin:
-
-https://www.cygwin.com/install.html
+If haven't already, [install Cygwin](https://www.cygwin.com/install.html).
 
 When you run the setup.exe, select the following packages to be installed:
 
@@ -71,10 +73,9 @@ However, the version bundled with the IDE is quite old. As of Arduino 1.8.8 the 
 If you wish to upgrade to a more modern version of avr-gcc it looks like the way to do so is WinAVR. See [this detailed writeup](http://www.nongnu.org/avr-libc/user-manual/install_tools.html).
 
 
-
 ### pySerial
 
-You should have installed pip above, so you can simply:
+You should have installed Python and pip above, so you can simply:
 
 ```
 pip install pyserial
@@ -112,7 +113,7 @@ $ [[ ! -f "$HOME/.bashrc" ]] && cp /etc/skel/.bashrc "$HOME/"
 
 ### Create symbolic link
 
-It is recommended in Windows that you create a symbolic link to avoid problems with file naming conventions on Windows due to special characters in the default directory name `C:\Program Files (x86)\Arduino`.  ([more info](https://github.com/sudar/Arduino-Makefile/issues/94))
+It is recommended in Windows that you create a symbolic link to avoid problems with file naming conventions on Windows due to special characters in the default Arduino directory name `C:\Program Files (x86)\Arduino`.  ([more info](https://github.com/sudar/Arduino-Makefile/issues/94))
 
 To create the link in Cygwin, use the CYGWIN environment variable to temporarily set the way symlinks are created. ([more info](https://www.cygwin.com/cygwin-ug-net/using-cygwinenv.html))
 ```sh
@@ -133,8 +134,9 @@ These are the main parameters you might want to set that apply to your system.
 These instructions will set them as environment variables so that they will persist across all of your projects.
 Just know you can choose to set them your Makefile instead of or in addition to setting environment variables.
 
-Append the following to your .bashrc:
+> Append to your .bashrc:
 ```sh
+# $HOME/.bashrc
 export ARDUINO_DIR="C:/Arduino"  # symbolic link to Arduino IDE, see above
 export ARDMK_DIR="<PATH>"        # path to Arduino-Makefile
 # export MONITOR_PORT="com3"     # uncomment if not auto-detected
@@ -146,3 +148,7 @@ If you use MSYS and PuTTY, you might want to set the following extra parameters:
 export MONITOR_CMD="putty"
 export MONITOR_PARMS="8,1,n,N"
 ```
+
+----
+
+[&ldca; Getting Started](GettingStarted.md) // [^Table of Contents^](#table-of-contents) // Finish [Installation &raquo;](Install.md#board-platform-support)

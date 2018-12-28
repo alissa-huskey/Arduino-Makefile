@@ -1,10 +1,10 @@
-[&laquo; Installation]()  // [&ldca; Getting Started]() // [Configuration &raquo;]()
+[&laquo; Installation](Installation.md)  // [&ldca; Getting Started](GettingStarted.md) // [Configuration &raquo;](Configuration.md)
+
+----
 
 # Usage
 
 Usage guide for Arduino-Makefile.
-
-Need information on how to get Arduino-Makefie set up on your system? [Go here]().
 
 #### Table of Contents
 <!-- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) -->
@@ -41,24 +41,109 @@ Some other variables you may wish to set include:
 - `ARDMK_DIR`   - Path where the master `*.mk` files are located. If you installed the package, then it is usually `/usr/share/arduino`.
 - `AVR_TOOLS_DIR` - Path where the avr tools chain binaries are located. Defaults to the tools bundled with your Arduino IDE (1.5+). Set to relative and not absolute. <!-- QUESTION: Is this true? -->
 
-Note: On Windows all paths should use Unix-style forward slashes `/` and not Windows-style back slashes `\\`.
-For example `C:/Arduino` not `C:\\Arduino`.
+> Note: On Windows all paths should use Unix-style forward slashes `/` and not Windows-style back slashes `\\`.  For example `C:/Arduino` not `C:\\Arduino`.
+
+More information on available variables found in the [Configuration](Configuration.md) section.
 
 ## Using Make
 
-To see all of the commands (or make targets) available run `make help`. This will start with the current configuration, and how each variable was set.
+### Getting Information
 
-```sh
-make help | less
+```
+$ make help              # show this help
+$ make help_vars         # print all variables that can be overridden
+$ make show_boards       # list all the boards defined in boards.txt
+$ make show_submenu      # list all board submenus defined in boards.txt
 ```
 
-To see a detailed list of available varaibles and their meanings:
+All `make` commands will display the compiled configuration at the top, listing the variables and how they were determined. This is useful for debugging problems with your environment setup.
 
-```sh
-make help_vars | less
+It will look something like this:
+
+```
+-------------------------
+Arduino.mk Configuration:
+- [AUTODETECTED]       CURRENT_OS = MAC
+- [USER]               ARDUINO_DIR = /Applications/Arduino.app/Contents/Java
+- [AUTODETECTED]       ARDUINO_VERSION = 188
+- [DEFAULT]            ARCHITECTURE = avr
+- [DEFAULT]            ARDMK_VENDOR = arduino
+...
 ```
 
-Note: if you see the error `make: *** No rule to make target \`help'.` it is because you have no Makefile in the current directory.
+Since the output of the above commands is long, it can be helpful to run them through a pager like `less`.
+
+```
+$ make help | less   # arrows to scroll, q to exit
+```
+
+### Building
+
+```
+$ make                   # compile the code (shortcut to make all)
+$ make all               # compile the code
+```
+
+### Uploading
+```
+$ make upload            # upload
+$ make ispload           # upload using an ISP
+$ make raw_upload        # upload without first resetting
+$ make eeprom            # upload the eep file
+$ make raw_eeprom        # upload the eep file without first resetting
+```
+
+### Using the Serial Monitor
+
+Arduino-Makefile provides an alternative to the Arduino graphical IDE Serial Monitor using `screen`.
+
+```
+$ make monitor           # connect to the Arduino's serial port
+```
+
+`screen` is a virtual terminal, so the commands you type will be sent to the program you run within the terminal--in this case, through the serial port to the board. To send commands to `screen` instead of to the board, you will first send the command character `<CTRL-A>` to signal that this is for `screen`, followed by a one additional command keystroke.
+
+A few commands you might want to know to use the serial monitor:
+
+```
+<CTRL-A> k       # kill the current screen; use this to exit the serial monitor
+<CTRL-A> <ESC>   # enter copy/scrollback mode; use this to scroll up or down in the serial monitor
+<ESC>            # exit copy/scrollback mode
+```
+
+For more information on how to use screen visit the man page by typing `man screen`.
+
+### Development Tools
+
+```
+$ make clean             # remove all our dependencies
+$ make depends           # update dependencies
+$ make debug_init        # start openocd gdb server
+$ make debug             # connect to gdb target and begin debugging
+$ make disasm            # generate a .lss file that contains disassembly
+                           of the compiled file interspersed with your
+                           original source code.
+$ make generate_assembly # generate a .s file containing the compiler
+                           generated assembly of the main sketch.
+$ make size              # show the size of the compiled output (relative to
+                           resources, if you have a patched avr-size).
+$ make symbol_sizes      # generate a .sym file containing symbols and their
+                           sizes.
+$ make verify_size       # verify that the size of the final file is less than
+                           the capacity of the micro controller.
+$ make tags              # generate tags file including project libs and Arduino core
+```
+
+### Board Tools
+
+```
+make burn_bootloader   # burn bootloader and fuses
+make reset             # reset the Arduino by tickling DTR or changing baud
+                         rate on the serial port.
+make set_fuses         # set fuses without burning bootloader
+```
+
+
 
 ## Makefiles
 
@@ -121,4 +206,6 @@ Finally, variables can be set in the Makefile for your project. This is where yo
 BOARD_SUB         = atmega2560
 ```
 
-[&laquo; Installation]()  // [&ldca; Getting Started]() // [Configuration &raquo;]()
+----
+
+[&laquo; Installation](Installation.md) // [&ldca; Getting Started](GettingStarted.md) //  [^Table of Contents^](#table-of-contents) // [Configuration &raquo;](Configuration.md)

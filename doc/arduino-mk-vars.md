@@ -1,6 +1,12 @@
+[&ldca; Getting Started](GettingStarted.md) // Continue [Configuration &raquo;](Configuration.md)
+
+----
+
 # Documentation of variables
 
 The following are the different variables that can be overwritten in the user makefiles.
+
+#### Table of Contents
 
 *	[Global variables](#global-variables)
 *	[Installation/Directory variables](#installationdirectory-variables)
@@ -15,6 +21,8 @@ The following are the different variables that can be overwritten in the user ma
 *	[Ctags variables](#ctags-variables)
 
 ## Global variables
+
+  * [ARDUINO\_QUIET](#arduino_quiet)
 
 ### ARDUINO_QUIET
 
@@ -34,7 +42,16 @@ ARDUINO_QUIET = 1
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## Installation/Directory variables
+
+  * [ARDMK\_DIR](#ardmk_dir)
+  * [AVR\_TOOLS\_DIR](#avr_tools_dir)
+  * [ARM\_TOOLS\_DIR](#arm_tools_dir)
+  * [RESET\_CMD](#reset_cmd)
 
 ### ARDMK_DIR
 
@@ -115,7 +132,21 @@ RESET_CMD = $(HOME)/gertduino/reset
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## Arduino IDE variables
+
+  * [ARDUINO\_DIR](#arduino_dir)
+  * [ARDUINO\_PACKAGE\_DIR](#arduino_package_dir)
+  * [ARDUINO\_PLATFORM\_LIB\_PATH](#arduino_platform_lib_path)
+  * [ARDUINO\_VERSION](#arduino_version)
+  * [ARCHITECTURE](#architecture)
+  * [ARDMK\_VENDOR](#ardmk_vendor)
+  * [ARDUINO\_SKETCHBOOK](#arduino_sketchbook)
+  * [ARDUINO\_PREFERENCES\_PATH](#arduino_preferences_path)
+  * [ARDUINO\_CORE\_PATH](#arduino_core_path)
 
 ### ARDUINO_DIR
 
@@ -288,7 +319,33 @@ ARDUINO_CORE_PATH = /usr/share/arduino/hardware/arduino/cores/arduino
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## Sketch related variables
+
+  * [ARDUINO\_LIBS](#arduino_libs)
+  * [BOARD\_TAG](#board_tag)
+  * [BOARD\_SUB](#board_sub)
+  * [BOARD\_CLOCK](#board_clock)
+  * [MONITOR\_PORT](#monitor_port)
+  * [FORCE\_MONITOR\_PORT](#force_monitor_port)
+  * [USER\_LIB\_PATH](#user_lib_path)
+  * [OBJDIR](#objdir)
+  * [TARGET](#target)
+  * [ALTERNATE\_CORE](#alternate_core)
+  * [ARDUINO\_VAR\_PATH](#arduino_var_path)
+  * [CORE](#core)
+  * [VARIANT](#variant)
+  * [USB\_TYPE](#usb_type)
+  * [USB\_VID](#usb_vid)
+  * [USB\_PID](#usb_pid)
+  * [F\_CPU](#f_cpu)
+  * [HEX\_MAXIMUM\_SIZE](#hex_maximum_size)
+  * [MCU](#mcu)
+  * [MCU\_FLAG\_NAME](#mcu_flag_name)
+  * [MONITOR\_BAUDRATE](#monitor_baudrate)
 
 ### ARDUINO_LIBS
 
@@ -703,7 +760,18 @@ MONITOR_BAUDRATE = 57600
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## ISP programming variables
+
+  * [ISP\_PROG](#isp_prog)
+  * [ISP\_PORT](#isp_port)
+  * [ISP\_LOCK\_FUSE\_PRE](#isp_lock_fuse_pre)
+  * [ISP\_LOCK\_FUSE\_POST](#isp_lock_fuse_post)
+  * [ISP\_HIGH\_FUSE](#isp_high_fuse)
+  * [ISP\_EEPROM](#isp_eeprom)
 
 ### ISP_PROG
 
@@ -817,7 +885,33 @@ ISP_EEPROM = 1
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## Compiler/Executable variables
+
+  * [CC\_NAME](#cc_name)
+  * [TOOL\_PREFIX](#tool_prefix)
+  * [CXX\_NAME](#cxx_name)
+  * [OBJCOPY\_NAME](#objcopy_name)
+  * [OBJDUMP\_NAME](#objdump_name)
+  * [AR\_NAME](#ar_name)
+  * [SIZE\_NAME](#size_name)
+  * [NM\_NAME](#nm_name)
+  * [GDB\_NAME](#gdb_name)
+  * [OPTIMIZATION\_LEVEL](#optimization_level)
+  * [OTHER\_LIBS](#other_libs)
+  * [CFLAGS\_STD](#cflags_std)
+  * [CXXFLAGS\_STD](#cxxflags_std)
+  * [CFLAGS](#cflags)
+  * [CXXFLAGS](#cxxflags)
+  * [DIAGNOSTICS\_COLOR\_WHEN](#diagnostics_color_when)
+  * [ASFLAGS](#asflags)
+  * [CPPFLAGS](#cppflags)
+  * [OVERRIDE\_EXECUTABLES](#override_executables)
+  * [MONITOR\_CMD](#monitor_cmd)
+  * [PRE\_BUILD\_HOOK](#pre_build_hook)
 
 ### CC_NAME
 
@@ -836,8 +930,6 @@ CC_NAME = pic32-gcc
 **Requirement:** *Optional*
 
 ----
-
-## Compiler/Executable variables
 
 ### TOOL_PREFIX
 
@@ -1268,7 +1360,26 @@ PRE_BUILD_HOOK = $(HOME)/bin/bump-revision.sh
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## Avrdude setting variables
+
+  * [AVRDUDE](#avrdude)
+  * [AVRDUDE\_CONF](#avrdude_conf)
+  * [AVR\_TOOLS\_PATH](#avr_tools_path)
+  * [ARDUINO\_LIB\_PATH](#arduino_lib_path)
+  * [ARDUINO\_CORE\_PATH](#arduino_core_path-1)
+  * [ALTERNATE\_CORE\_PATH](#alternate_core_path)
+  * [CORE\_VER](#core_ver)
+  * [CMSIS\_DIR](#cmsis_dir)
+  * [CMSIS\_ATMEL\_DIR](#cmsis_atmel_dir)
+  * [BOARDS\_TXT](#boards_txt)
+  * [AVRDUDE\_ARD\_BAUDRATE](#avrdude_ard_baudrate)
+  * [AVRDUDE\_ARD\_PROGRAMMER](#avrdude_ard_programmer)
+  * [AVRDUDE\_ISP\_BAUDRATE](#avrdude_isp_baudrate)
+  * [AVRDUDE\_OPTS](#avrdude_opts)
 
 ### AVRDUDE
 
@@ -1429,6 +1540,7 @@ Path to CMSIS-Atmel directory. Installed with ARM support package.
 Defaults to `ARDUINO_PACKAGE_DIR/tools/CMSIS-Atmel/1.1.0/CMSIS`
 
 **Requirement:** *Optional*
+
 ----
 
 ### BOARDS_TXT
@@ -1523,7 +1635,20 @@ AVRDUDE_OPTS = -v
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## Bootloader variables
+
+  * [BOOTLOADER\_FILE](#bootloader_file)
+  * [BOOTLOADER\_PATH](#bootloader_path)
+  * [BOOTLOADER\_PARENT](#bootloader_parent)
+  * [BOOTLOADER\_SIZE](#bootloader_size)
+  * [BOOTLOADER\_UNPROTECT](#bootloader_unprotect)
+  * [BOOTLOADER\_PROTECT](#bootloader_protect)
+  * [BOOTLOADER\_PROTECT\_VERIFY](#bootloader_protect_verify)
+  * [BOOTLOADER\_UPLOAD\_TOOL](#bootloader_upload_tool)
 
 ### BOOTLOADER_FILE
 
@@ -1648,7 +1773,14 @@ Defaults to `openocd`
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## ChipKIT variables
+
+  * [MPIDE\_DIR](#mpide_dir)
+  * [MPIDE\_PREFERENCES\_PATH](#mpide_preferences_path)
 
 ### MPIDE_DIR
 
@@ -1686,7 +1818,21 @@ MPIDE_PREFERENCES_PATH = $(HOME)/chipkit/preferences.txt
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## ARM variables
+
+  * [UPLOAD\_TOOL](#upload_tool)
+  * [DEBUG](#debug)
+  * [GDB\_PORT](#gdb_port)
+  * [GDB\_OPTS](#gdb_opts)
+  * [GDB\_UPLOAD\_OPTS](#gdb_upload_opts)
+  * [BOSSA](#bossa)
+  * [BOSSA\_OPTS](#bossa_opts)
+  * [OPENOCD](#openocd)
+  * [OPENOCD\_OPTS](#openocd_opts)
 
 ### UPLOAD_TOOL
 
@@ -1825,7 +1971,15 @@ OPENOCD_OPTS = $(ARDUINO_PACKAGE_DIR)/$(ARDMK_VENDOR)/tools/openocd/0.9.0-arduin
 
 ----
 
+[^Table of Contents^](#table-of-contents)
+
+----
+
 ## Ctags variables
+
+  * [TAGS\_FILE](#tags_file)
+  * [CTAGS\_OPTS](#ctags_opts)
+  * [CTAGS\_CMD](#ctags_cmd)
 
 ### TAGS_FILE
 
@@ -1873,3 +2027,7 @@ CTAGS_CMD = /usr/local/bin/
 ```
 
 **Requirement:** *Optional*
+
+----
+
+[&ldca; Getting Started](GettingStarted.md) // [^Table of Contents^](#table-of-contents) // Continue [Configuration &raquo;](Configuration.md)

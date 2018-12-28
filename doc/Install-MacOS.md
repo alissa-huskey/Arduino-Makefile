@@ -1,8 +1,12 @@
+[&ldca; Getting Started](GettingStarted.md) // Finish [Installation &raquo;](Install.md#board-platform-support)
+
+----
+
 # MacOS Installation Guide for Arduino-Makefile
 
 A guide to setup of Arduino-Makefile including installing its requirements and system configuration for MacOS.
 
-**Table of Contents**
+#### Table of Contents
 <!--- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) --->
 
   * [Feelin' Lucky?](#feelin-lucky)
@@ -22,7 +26,7 @@ Assuming that you already have the Arduino IDE 1.5+ installed, here is the bare 
 $ pip install pyserial
 $ git clone git@github.com:sudar/Arduino-Makefile.git
 $ cd Arduino-Makefile
-$ echo 'export ARDMK_DIR="'"$(pwd -P)"'"' >> "$HOME/.bashrc"
+$ echo 'export ARDMK_DIR="'"$(pwd -P)"'"' >> "$HOME/.bash_profile"
 $ cd examples/Blink
 $ make
 $ make upload  # assumes an arduino uno board plugged in
@@ -42,8 +46,7 @@ $ brew cask install java
 $ brew cask install arduino
 ```
 
-Or follow this guide:
-https://www.arduino.cc/en/Guide/MacOSX
+Or follow the [official Arduino guide](https://www.arduino.cc/en/Guide/MacOSX) to download and and install a DRM.
 
 ### AVR Tools
 
@@ -103,12 +106,11 @@ These instructions will set them as environment variables so that they will pers
 Just know you can choose to set them your Makefile instead of or in addition to setting environment variables.
 
 
-Append the following to your .bash_profile:
-
+> Append to your .bash_profile:
 ```sh
-# append to $HOME/.bash_profile
-export AVR_TOOLS_DIR="/usr"      # path to avr-gcc and avrdude
-# export ARDMK_DIR="/usr/local"  # path to Arduino-Makefile; uncomment if you installed via package manager
+# $HOME/.bash_profile
+export AVR_TOOLS_DIR="/usr/local"      # path to avr-gcc and avrdude, if installed via brew
+# export ARDMK_DIR="/usr/local"        # path to Arduino-Makefile; uncomment if you installed via package manager
 
 # uncomment the following if not auto-detected
 # export ARDUINO_DIR="/Applications/Arduino.app/Contents/Resources/Java" # 1.0.X # path to Arduino IDE
@@ -117,3 +119,7 @@ export AVR_TOOLS_DIR="/usr"      # path to avr-gcc and avrdude
 # export AVR_TOOLS_DIR="/usr"                                            # path to avr-gcc and avrdude
 # export MONITOR_PORT="/dev/ttyACM0"                                     # serial monitor port
 ```
+
+----
+
+[&ldca; Getting Started](GettingStarted.md) // [^Table of Contents^](#table-of-contents) // Finish [Installation &raquo;](Install.md#board-platform-support)

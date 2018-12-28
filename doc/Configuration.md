@@ -1,10 +1,13 @@
-[&laquo; Usage]()  // [&ldca; Getting Started]() // [Bootstrap Tools &raquo;]()
+[&laquo; Usage](Usage.md)  // [&ldca; Getting Started](GettingStarted.md) // [Bootstrap Tools &raquo;](BootstrapTools.md)
+
+----
 
 # Configuration
 
 #### Table of Contents
 <!-- Created by [github-markdown-toc](https://github.com/ekalinin/github-markdown-toc.go) -->
 
+  * [Variables](#variables)
   * [Libraries](#libraries)
   * [avrdude](#avrdude)
   * [Arduino ARM Boards](#arduino-arm-boards)
@@ -17,7 +20,10 @@
 Arduino-Makefile provides the master `Arduino.mk` file for you to include in your projects `Makefile`. You can then override its variables to suit the needs of your system and project.
 
 
+## Variables
+
 The complete list of variables is available [here](arduino-mk-vars.md) or by running `make help_vars`.
+
 
 ## Libraries
 
@@ -191,4 +197,7 @@ In Clean Project/Target remove $target:
 $make -f $makefile clean
 ```
 
-[&laquo; Usage]()  // [&ldca; Getting Started]() // [^Table of Contents^](#table-of-contents) // [Bootstrap Tools &raquo;]()
+
+----
+
+[&laquo; Usage](Usage.md)  // [&ldca; Getting Started](GettingStarted.md) // [^Table of Contents^](#table-of-contents) // [Bootstrap Tools &raquo;](BootstrapTools.md)

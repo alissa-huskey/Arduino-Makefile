@@ -1,9 +1,10 @@
-[&laquo; Configuring]()  // [&ldca; Getting Started]() // [Troubleshooting &raquo;]()
+[&laquo; Configuring](Configuration.md)  // [&ldca; Getting Started](GettingStarted.md) // [Troubleshooting &raquo;](Troubleshooting.md)
+
+----
 
 # Bootstrap Tools
 
 - Use Arduino-Makefile as a submodule
-- Configuring your Project
 
 ## Makefile Generator and Project Initialisation
 
@@ -29,4 +30,6 @@ Further information are available in the [README.md](https://github.com/WeAreLek
 
 Please be sure to report issues to [Bare-Arduino–Project](https://github.com/WeAreLeka/Bare-Arduino-Project/issues) if you use it instead of this project.
 
-[&laquo; Configuring]()  // [&ldca; Getting Started]() // [Troubleshooting &raquo;]()
+----
+
+[&laquo; Configuring](Configuration.md)  // [&ldca; Getting Started](GettingStarted.md) // [Troubleshooting &raquo;](Troubleshooting.md)
