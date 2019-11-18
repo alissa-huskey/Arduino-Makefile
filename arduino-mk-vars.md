@@ -13,6 +13,7 @@ The following are the different variables that can be overwritten in the user ma
 *	[ChipKIT variables](#chipkit-variables)
 *	[ARM variables](#arm-variables)
 *	[Ctags variables](#ctags-variables)
+* [Vim variables](#vim-variables)
 
 ## Global variables
 
@@ -1907,5 +1908,21 @@ Location of `ctags` binary. Defaults to user path.
 ```Makefile
 CTAGS_CMD = /usr/local/bin/
 ```
+
+**Requirement:** *Optional*
+
+----
+
+## Vim Variables
+
+** Description **
+
+Output file of `make vim`,  local vimrc.
+
+**Example:**
+
+```Makefile
+VIMRC=$PROJECT_DIR/.vimrc
+``
 
 **Requirement:** *Optional*

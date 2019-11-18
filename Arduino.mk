@@ -266,6 +266,7 @@ endif
 # include Common.mk now we know where it is
 ifndef COMMON_INCLUDED
     include $(ARDMK_DIR)/Common.mk
+    include $(ARDMK_DIR)/vim.mk
 endif
 
 # show_config_variable macro is available now. So let's print config details for ARDMK_DIR
@@ -1880,6 +1881,7 @@ help:
   make burn_bootloader   - burn bootloader and fuses\n\
   make set_fuses         - set fuses without burning bootloader\n\
   make tags              - generate tags file including project libs and Arduino core\n\
+  make vim               - generate .vimrc file in project directory setting syntastic compile vars\n\
   make help_vars         - print all variables that can be overridden\n\
   make help              - show this help\n\
 "
